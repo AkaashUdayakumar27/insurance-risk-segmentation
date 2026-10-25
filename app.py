@@ -23,12 +23,12 @@ long = tiers.melt(id_vars="tier", value_vars=["actual_loss_cost", "predicted_los
                   var_name="type", value_name="loss_cost")
 fig = px.bar(long, x="tier", y="loss_cost", color="type", barmode="group")
 fig.update_xaxes(type="category")
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 st.subheader("Claim frequency by customer group")
 left, mid, right = st.columns(3)
-left.plotly_chart(px.bar(age, x="age_band", y="frequency", title="Driver age"), use_container_width=True)
-mid.plotly_chart(px.bar(bm, x="bonus_malus_band", y="frequency", title="Driving history (BonusMalus)"), use_container_width=True)
-right.plotly_chart(px.bar(veh, x="veh_age_band", y="frequency", title="Vehicle age"), use_container_width=True)
+left.plotly_chart(px.bar(age, x="age_band", y="frequency", title="Driver age"), width="stretch")
+mid.plotly_chart(px.bar(bm, x="bonus_malus_band", y="frequency", title="Driving history (BonusMalus)"), width="stretch")
+right.plotly_chart(px.bar(veh, x="veh_age_band", y="frequency", title="Vehicle age"), width="stretch")
 
 st.caption("Limitation: analytical exercise, not a production pricing model.")
